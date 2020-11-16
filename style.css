@@ -2,3 +2,16 @@ h1 {
     text-align: center;
     font-size: 2em;
 }
+h5 {
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table {
+    width: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+}
