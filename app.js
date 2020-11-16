@@ -1,1 +1,1 @@
-alert("Hello");
+//javascript file
