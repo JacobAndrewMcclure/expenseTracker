@@ -1,5 +1,3 @@
-let node;
-
 let rowElement;
 let vendorNode;
 let dateNode;
