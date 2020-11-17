@@ -45,4 +45,10 @@ function addItem() {
     rowElement.appendChild(btnNode);
     //append TD element to table section
     document.getElementById("expenseTable").appendChild(rowElement);
+    //add event listener to delete button
+    btnNode.addEventListener("click", deleteRow);
+}
+
+function deleteRow() {
+    alert("Delete");
 }
