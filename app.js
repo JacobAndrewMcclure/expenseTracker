@@ -45,12 +45,12 @@ function addItem() {
     let vendor = document.getElementById("vendorInput").value;
     let date = document.getElementById("dateInput").value;
     let amount = document.getElementById("amountInput").value;
-    
+    //Verify valid inputs are entered
     if (vendor == "" || vendor == " ") {
         alert("Enter a valid Vendor");
     } else if (amount == "") {
         alert("Enter a valid amount");
-    } else if (date == "") {
+    } else if (date == "" || date.length > 10) {
         alert("Enter a valid date")
     }
     else {
@@ -61,9 +61,20 @@ function addItem() {
             //Convert amount to int
             amount = parseFloat(amount);
             amount = amount.toFixed(2);
-            /*
-            date = getFormattedDate();
-            */
+            //converts string to date
+            date = new Date(date);
+            //calcs timezone difference
+            let timezone = new Date(date).getTimezoneOffset();
+            //offsets time with timezone
+            date - date.setMinutes(timezone);
+            //Assign day, month & year to variables
+            let userDay = date.getDate();
+            let userMonth = date.getMonth();
+            let userYear = date.getFullYear();
+            //add 1 to month for adjustment
+            userMonth++;
+            //format date string
+            date = userMonth + "-" + userDay + "-" + userYear;
             //create TD elements
             vendorNode = document.createElement("TD");
             dateNode = document.createElement("TD");
@@ -98,16 +109,17 @@ function addItem() {
     }
 
 function deleteRow(event) {
-    //assigns event to X
-    let x = event.target;
-    //assigns parent of event to y
-    let y = x.parentElement;
-    //removes parent of event (AKA Y)
-    y.remove();
+    let okDel = confirm("Are you sure you want to delete?");
+    if (okDel == true) {
+        //assigns event to X
+        let x = event.target;
+        //assigns parent of event to y
+        let y = x.parentElement;
+        //removes parent of event (AKA Y)
+        y.remove();
+    } else {
+        
+    }
     //focus on vendor field
     document.getElementById("vendorInput").focus();
 }
-/*
-function getFormattedDate(inputTime) {
-
-}*/
