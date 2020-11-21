@@ -46,8 +46,12 @@ function addItem() {
     let date = document.getElementById("dateInput").value;
     let amount = document.getElementById("amountInput").value;
     
-    if (vendor == "" || amount == "" || date == "") {
-        alert("Enter a valid input");
+    if (vendor == "" || vendor == " ") {
+        alert("Enter a valid Vendor");
+    } else if (amount == "") {
+        alert("Enter a valid amount");
+    } else if (date == "") {
+        alert("Enter a valid date")
     }
     else {
             //clear fields after button press
@@ -57,11 +61,14 @@ function addItem() {
             //Convert amount to int
             amount = parseFloat(amount);
             amount = amount.toFixed(2);
+            /*
+            date = getFormattedDate();
+            */
             //create TD elements
             vendorNode = document.createElement("TD");
             dateNode = document.createElement("TD");
             amountNode = document.createElement("TD");
-            btnNode = document.createElement("BUTTON");
+            btnNode = document.createElement("TD");
             //create tr element
             rowElement = document.createElement("TR");
             //create text node to store user inputs
@@ -74,6 +81,8 @@ function addItem() {
             dateNode.appendChild(dateTextNode);
             amountNode.appendChild(amountTextNode);
             btnNode.appendChild(btnTextNode);
+            //attach deleteButton class to button
+            btnNode.classList.add("deleteButton");
             //append TD elements to TR element
             rowElement.appendChild(vendorNode);
             rowElement.appendChild(dateNode);
@@ -83,6 +92,8 @@ function addItem() {
             document.getElementById("expenseTable").appendChild(rowElement);
             //add event listener to delete button
             btnNode.addEventListener("click", deleteRow);
+            //focus on vendor field
+            document.getElementById("vendorInput").focus();
         }
     }
 
@@ -96,3 +107,7 @@ function deleteRow(event) {
     //focus on vendor field
     document.getElementById("vendorInput").focus();
 }
+/*
+function getFormattedDate(inputTime) {
+
+}*/

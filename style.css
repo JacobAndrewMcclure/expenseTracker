@@ -4,14 +4,71 @@ h1 {
 }
 h5 {
     text-align: center;
+    font-size: 1.2em;
+}
+#vendorContainer {
+    text-align: center;
+    padding: 1em;
+}
+#vendorLabel {
+    text-align: center;
+}
+#vendorInput {
+    width: 60%;
+    height: 20px;
+}
+#dateInput {
+    height: 25px;
+}
+#amountInput {
+    height: 20px;
+    width: 100px;
+}
+.dateAmountContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+#addItem:hover {
+    cursor: pointer;
+}
+#addItem {
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+}
+#expenseTable {
+    width: 80%;
 }
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+}
+th {
+    padding: .5em;
+}
+td {
+    padding: .5em;
+    text-align: center;
+}
+.deleteButton {
+    background-color: red;
 }
 table {
     width: auto;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 50px;
+}
+#deleteColumn {
+    width: 20px;
+    text-align: center;
+}
+.deleteButton:hover {
+    cursor: pointer;
 }
